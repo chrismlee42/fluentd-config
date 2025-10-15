@@ -12,11 +12,13 @@ spec:
             - name: FLUENT_ELASTICSEARCH_HOST
               value: "elk-es-http"
             - name: FLUENT_ELASTICSEARCH_PASSWORD
+              value: ""
               valueFrom:
                 secretKeyRef:
                   name: fluentd-config
                   key: elasticsearch-password
             - name: FLUENT_ELASTICSEARCH_USER
+              value: ""
               valueFrom:
                 secretKeyRef:
                   name: fluentd-config
