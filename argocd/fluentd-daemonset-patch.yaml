@@ -25,3 +25,4 @@ spec:
                   key: elasticsearch-user
             - name: FLUENT_ELASTICSEARCH_SCHEME
               value: "http"
+      serviceAccountName: fluentd
