@@ -10,19 +10,27 @@ spec:
         - name: fluentd
           env:
             - name: FLUENT_ELASTICSEARCH_HOST
-              value: "elk-es-http"
+              value: ""
+              valueFrom:
+                secretKeyRef:
+                  name: fluentd-config
+                  key: elasticsearch-host
             - name: FLUENT_ELASTICSEARCH_PASSWORD
               value: ""
               valueFrom:
                 secretKeyRef:
                   name: fluentd-config
                   key: elasticsearch-password
+            - name: FLUENT_ELASTICSEARCH_SCHEME
+              value: ""
+              valueFrom:
+                secretKeyRef:
+                  name: fluentd-config
+                  key: elasticsearch-scheme
             - name: FLUENT_ELASTICSEARCH_USER
               value: ""
               valueFrom:
                 secretKeyRef:
                   name: fluentd-config
                   key: elasticsearch-user
-            - name: FLUENT_ELASTICSEARCH_SCHEME
-              value: "http"
       serviceAccountName: fluentd
